@@ -1,76 +1,55 @@
-import project1 from "./assets/projects/project-1.jpg";
-import project2 from "./assets/projects/project-2.jpg";
-import project3 from "./assets/projects/project-3.jpg";
-import project4 from "./assets/projects/project-4.jpg";
+import ChatApp from "./assets/projects/ChatApp.png";
+import DevHub from "./assets/projects/DevHub.png";
+import ECommerce from "./assets/projects/E-Commerce.png";
 
-export const HERO_CONTENT = `I am a passionate full stack developer with a knack for crafting robust and scalable web applications. With 5 years of hands-on experience, I have honed my skills in front-end technologies like React and Next.js, as well as back-end technologies like Node.js, MySQL, PostgreSQL, and MongoDB. My goal is to leverage my expertise to create innovative solutions that drive business growth and deliver exceptional user experiences.`;
+export const HERO_CONTENT = `I'm passionate about technology, coding, and building innovative projects.`;
 
-export const ABOUT_TEXT = `I am a dedicated and versatile full stack developer with a passion for creating efficient and user-friendly web applications. With 5 years of professional experience, I have worked with a variety of technologies, including React, Next.js, Node.js, MySQL, PostgreSQL, and MongoDB. My journey in web development began with a deep curiosity for how things work, and it has evolved into a career where I continuously strive to learn and adapt to new challenges. I thrive in collaborative environments and enjoy solving complex problems to deliver high-quality solutions. Outside of coding, I enjoy staying active, exploring new technologies, and contributing to open-source projects.`;
-
-export const EXPERIENCES = [
-  {
-    year: "2023 - Present",
-    role: "Senior Full Stack Developer",
-    company: "Google Inc.",
-    description: `Led a team in developing and maintaining web applications using JavaScript, React.js, and Node.js. Implemented RESTful APIs and integrated with MongoDB databases. Collaborated with stakeholders to define project requirements and timelines.`,
-    technologies: ["Javascript", "React.js", "Next.js", "mongoDB"],
-  },
-  {
-    year: "2022 - 2023",
-    role: "Frontend Developer",
-    company: "Adobe",
-    description: `Designed and developed user interfaces for web applications using Next.js and React. Worked closely with backend developers to integrate frontend components with Node.js APIs. Implemented responsive designs and optimized frontend performance.`,
-    technologies: ["HTML", "CSS", "Vue.js", "mySQL"],
-  },
-  {
-    year: "2021 - 2022",
-    role: "Full Stack Developer",
-    company: "Facebook",
-    description: `Developed and maintained web applications using JavaScript, React.js, and Node.js. Designed and implemented RESTful APIs for data communication. Collaborated with cross-functional teams to deliver high-quality software products on schedule.`,
-    technologies: ["Python", "Svelte", "Three.js", "Postgres"],
-  },
-  {
-    year: "2020 - 2021",
-    role: "Software Engineer",
-    company: "Paypal",
-    description: `Contributed to the development of web applications using JavaScript, React.js, and Node.js. Managed databases and implemented data storage solutions using MongoDB. Worked closely with product managers to prioritize features and enhancements.`,
-    technologies: ["Ruby", "Rails", "PHP", "Sqlite"],
-  },
-];
+export const ABOUT_TEXT = `I’m a Computer Science undergraduate at Shiv Nadar University, Chennai. I have a strong interest in software development, especially in the areas of web development, artificial intelligence, real-time systems, IoT, and cloud computing.
+Over time, I’ve been exploring how these technologies work together to build useful, connected applications. I enjoy working on full-stack web projects, building APIs, and experimenting with AI to enhance user experiences. I’m also interested in real-time communication systems and how cloud platforms can help scale modern applications.
+I'm continuously learning by building projects, exploring new tools, and understanding how to design systems that are practical, efficient, and user-focused.`;
 
 export const PROJECTS = [
-  {
-    title: "E-Commerce Website",
-    image: project1,
-    description:
-      "A fully functional e-commerce website with features like product listing, shopping cart, and user authentication.",
-    technologies: ["HTML", "CSS", "React", "Node.js", "MongoDB"],
-  },
-  {
-    title: "Task Management App",
-    image: project2,
-    description:
-      "An application for managing tasks and projects, with features such as task creation, assignment, and progress tracking.",
-    technologies: ["HTML", "CSS", "Angular", "Firebase"],
-  },
-  {
-    title: "Portfolio Website",
-    image: project3,
-    description:
-      "A personal portfolio website showcasing projects, skills, and contact information.",
-    technologies: ["HTML", "CSS", "React", "Bootstrap"],
-  },
-  {
-    title: "Blogging Platform",
-    image: project4,
-    description:
-      "A platform for creating and publishing blog posts, with features like rich text editing, commenting, and user profiles.",
-    technologies: ["HTML", "CSS", "Vue.js", "Express", "mySQL"],
-  },
+    {
+      title: "E-Commerce Platform",
+      image: ECommerce,
+      description:
+        "A full-stack e-commerce platform with product catalog, shopping cart, user authentication, and payment processing.",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe", "Zustand"],
+      github: "https://github.com/yourusername/ecommerce-app",
+      link: "https://ecommerce-demo.example.com"
+    },
+    {
+      title: "Real-Time Chat App",
+      image: ChatApp,
+      description:
+        "A real-time chat application built with the MERN stack and Socket.io for instant messaging. Features include user authentication, chat rooms, and global state management with Zustand.",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Socket.io", "Zustand"],
+      github: "https://github.com/yourusername/realtime-chat-app",
+      link: "https://chat-demo.example.com"
+    },
+    {
+      title: "Developer Hub",
+      image: DevHub,
+      description:
+        "A community-driven platform for developers to form groups, collaborate on projects, manage tasks, and communicate in real-time. Includes private chats, role-based access, and AI-assisted task planning.",
+      technologies: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Zustand"],
+      github: "https://github.com/yourusername/devhub",
+      link: "https://devhub-demo.example.com"
+    },
+    {
+      title: "University LMS",
+      description:
+        "A Learning Management System designed for university-level education. Supports course creation, assignment management, student tracking, and role-based dashboards for students, instructors, and admins.",
+      technologies: ["React", "Node.js", "Express", "MySQL"],
+      github: "https://github.com/yourusername/university-lms",
+      link: "https://lms-demo.example.com"
+    }
 ];
 
+
 export const CONTACT = {
-  address: "767 Fifth Avenue, New York, NY 10153 ",
-  phoneNo: "+12 4555 666 00 ",
-  email: "me@example.com",
+  address: "Chennai, Tamil Nadu, India",
+  email: "akash@example.com",
+  phoneNo: "+91 98765 43210",
+  github: "https://github.com/akashmdev"
 };
