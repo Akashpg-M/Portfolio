@@ -23,7 +23,7 @@ const About = () => {
             <h3 className="text-xl font-semibold">Shiv Nadar University, Chennai</h3>
           </div>
           <p className="text-neutral-400 mb-2">B.Tech in Computer Science</p>
-          <p className="text-sm text-neutral-500">2021 - 2025</p>
+          <p className="text-sm text-neutral-500">2023 - 2027</p>
           
           <div className="mt-6">
             <h4 className="font-medium mb-2">Relevant Coursework:</h4>
