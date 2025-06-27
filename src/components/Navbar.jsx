@@ -1,178 +1,152 @@
-import { useState, useEffect } from 'react';
-import { FaGithub, FaLinkedin, FaBars, FaTimes } from 'react-icons/fa';
+import { useState, useEffect, useCallback } from 'react';
+import { useTheme } from '../context/ThemeContext';
+import { FaBars, FaTimes, FaSun, FaMoon } from 'react-icons/fa';
 
 const sections = [
   { id: 'home', name: 'Home' },
   { id: 'about', name: 'About' },
-  { id: 'skills', name: 'Skills' },
+  { id: 'technologies', name: 'Skills' },
   { id: 'projects', name: 'Projects' },
   { id: 'contact', name: 'Contact' },
 ];
 
-const Navbar = ({ activeSection }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
-  // Handle scroll effect for navbar
+  const themeContext = useTheme?.();
+  const { isDarkMode, toggleTheme } = themeContext || {
+    isDarkMode: false,
+    toggleTheme: () => {},
+  };
+
+  const handleThemeToggle = useCallback(() => {
+    try {
+      toggleTheme();
+    } catch (error) {
+      console.error('Theme toggle error:', error);
+    }
+  }, [toggleTheme]);
+
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Close mobile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      const nav = document.querySelector('nav');
-      if (nav && !nav.contains(event.target) && isOpen) {
-        setIsOpen(false);
+      const scrollPos = window.scrollY + 120;
+      for (const section of sections) {
+        const el = document.getElementById(section.id);
+        if (el) {
+          const top = el.offsetTop;
+          const bottom = top + el.offsetHeight;
+          if (scrollPos >= top && scrollPos < bottom) {
+            setActiveSection(section.id);
+            break;
+          }
+        }
       }
     };
 
-    if (isOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
-    }
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen]);
-
-  // Scroll to section
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      window.scrollTo({
-        top: element.offsetTop - 80,
-        behavior: 'smooth',
-      });
-    }
-    setIsOpen(false);
-  };
-
-  // Scroll to top when clicking the logo
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  const scrollToSection = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
     setIsOpen(false);
   };
 
   return (
-    <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-neutral-900/90 backdrop-blur-sm' : 'bg-neutral-900/80 backdrop-blur-sm'
-      }`}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <button 
-            onClick={scrollToTop}
-            className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent hover:opacity-80 transition-opacity"
-          >
-            Akash
-          </button>
+    // <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-grey shadow-md transition-colors">
+    <nav className="fixed top-0 left-0 right-0 z-50 shadow-md transition-colors bg-[var(--light-background)] dark:bg-[var(--dark-background)]">
+      <div className="container mx-auto px-4 flex justify-between items-center py-3">
+        {/* Logo */}
+        <button
+          onClick={() => scrollToSection('home')}
+          className="text-light-textl font-bold text-light-textight-text dark:text-dark-text"
+        >
+          Akash M
+        </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                className={`px-4 py-2 text-sm font-medium transition-colors duration-200 ${
-                  activeSection === section.id
-                    ? 'text-cyan-400' 
-                    : 'text-neutral-300 hover:text-cyan-400'
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-center space-x-4">
+          {sections.map(({ id, name }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={`relative text-sm font-medium px-3 py-2 transition-colors group
+                ${
+                  activeSection === id
+                    ? 'text-blue-700 dark:text-blue-400 font-semibold'
+                    : 'text-[var(--light-text-light-textlt)] dark:text-[var(--dark-text-light-textlt)] hover:text-blue-700 dark:hover:text-blue-400'
                 }`}
-              >
-                {section.name}
-              </button>
-            ))}
-          </div>
-
-          {/* Social Icons - Desktop */}
-          <div className="hidden md:flex items-center space-x-4">
-            <a 
-              href="https://github.com/yourusername" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200"
-              aria-label="GitHub"
             >
-              <FaGithub className="w-5 h-5" />
-            </a>
-            <a 
-              href="https://linkedin.com/in/yourusername" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin className="w-5 h-5" />
-            </a>
-          </div>
+              {name}
+              <span
+                className={`absolute left-0 -bottom-1 h-[2px] w-full bg-blue-600 dark:bg-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left
+                  ${activeSection === id ? 'scale-x-100' : ''}`}
+              />
+            </button>
+          ))}
 
-          {/* Mobile menu button */}
+          {/* Theme Toggle */}
           <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-neutral-300 hover:text-cyan-400 focus:outline-none"
-            aria-label="Toggle menu"
+            onClick={handleThemeToggle}
+            className="p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-600"
+            aria-label="Toggle theme"
           >
-            {isOpen ? (
-              <FaTimes className="w-6 h-6" />
+            {isDarkMode ? (
+              <FaSun className="w-5 h-5 text-yellow-400 hover:text-yellow-300" />
             ) : (
-              <FaBars className="w-6 h-6" />
+              <FaMoon className="w-5 h-5 text-light-text hover:text-light-textray-900" />
             )}
           </button>
         </div>
 
-        {/* Mobile Menu */}
-        <div 
-          className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
-            isOpen ? 'max-h-screen' : 'max-h-0'
-          }`}
-        >
-          <div className="bg-neutral-900/95 backdrop-blur-sm rounded-lg p-4 flex flex-col space-y-2 mb-4">
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => scrollToSection(section.id)}
-                className={`px-4 py-3 rounded-md text-sm font-medium text-left transition-colors duration-200 ${
-                  activeSection === section.id
-                    ? 'bg-neutral-800 text-cyan-400' 
-                    : 'text-neutral-300 hover:bg-neutral-800 hover:text-cyan-400'
-                }`}
-              >
-                {section.name}
-              </button>
-            ))}
-            <div className="flex justify-center space-x-6 py-4">
-              <a 
-                href="https://github.com/yourusername" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200"
-                aria-label="GitHub"
-              >
-                <FaGithub className="w-6 h-6" />
-              </a>
-              <a 
-                href="https://linkedin.com/in/yourusername" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-neutral-300 hover:text-cyan-400 transition-colors duration-200"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin className="w-6 h-6" />
-              </a>
-            </div>
-          </div>
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden flex items-center gap-4">
+          <button
+            onClick={handleThemeToggle}
+            className="p-1 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 dark:focus:ring-blue-600"
+            aria-label="Toggle theme"
+          >
+            {isDarkMode ? (
+              <FaSun className="w-5 h-5 text-yellow-400 hover:text-yellow-300"/>
+            ) : (
+              <FaMoon className="w-5 h-5 text-light-text hover:text-light-textray-900"/>
+            )}
+          </button>
+
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-light-text dark:dark:text-dark-text"
+          >
+            {isOpen ? <FaTimes size={22} /> : <FaBars size={22} />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Dropdown */}
+      {isOpen && (
+        <div className="md:hidden px-4 pb-4 space-y-2">
+          {sections.map(({ id, name }) => (
+            <button
+              key={id}
+              onClick={() => scrollToSection(id)}
+              className={`block w-full text-light-texteft px-4 py-2 rounded-md font-medium ${
+                activeSection === id
+                  ? 'bg-blue-100 dark:bg-blue-800/30 text-blue-700 dark:text-blue-300'
+                  : 'text-light-text dark:text-[var(--dark-text-light-textlt)] hover:bg-blue-50 dark:hover:bg-blue-900/20'
+              }`}
+            >
+              {name}
+            </button>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };
 
 export default Navbar;
+
+
