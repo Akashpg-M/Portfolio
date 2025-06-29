@@ -1,2 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* Base styles */
 @import "tailwindcss";
+
+:root {
+  --light-background: #ffffff;
+  --light-background-alt: #f8fafc;
+  --light-text: #0f172a;
+  --light-text-alt: #475569;
+  --light-primary: #2563eb;
+  --light-accent: #3b82f6;
+  --light-border: #e2e8f0;
+  --light-card: #ffffff;
+  
+  --dark-background: #1c1c1c; 
+  --dark-background-alt: #1a1a1a; 
+  --dark-text: #f8fafc; 
+  --dark-text-alt: #a1a1aa; 
+  --dark-primary: #60a5fa;
+  --dark-accent: #3b82f6;
+  --dark-border: #2d3748; 
+  --dark-card: #1e1e1e; 
+}
+
+nav {
+  background-color: var(--light-background);
+}
+
+.dark nav {
+  background-color: var(--dark-background);
+}
+
+.dark body {
+  background-color: var(--dark-background);
+  color: var(--dark-text);
+}
+
+.dark .shadow-md {
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+.dark .hover\:shadow-lg:hover {
+  box-shadow: 0 0 18px rgba(255, 255, 255, 0.15);
+} 

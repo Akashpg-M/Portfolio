@@ -1,118 +1,134 @@
-import { HERO_CONTENT } from "../constants";
-import { FaGithub, FaLinkedin, FaGraduationCap, FaCode } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaArrowRight } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
+import { motion } from "framer-motion";
+import { Typewriter, useTypewriter } from "react-simple-typewriter";
+import { HERO_CONTENT } from "../constants";
 
 const Home = () => {
   const scrollToProjects = () => {
-    const projectsSection = document.getElementById('projects');
-    if (projectsSection) {
-      projectsSection.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const socialLinks = [
+    { icon: <FaLinkedin />, href: "http://www.linkedin.com/in/akash-m-50951828a", label: "LinkedIn" },
+    { icon: <FaGithub />, href: "https://github.com/Akashpg-M", label: "GitHub" },
+    { icon: <SiLeetcode />, href: "https://leetcode.com/u/A_k_a_s_h_m/", label: "LeetCode" },
+  ];
+
+  const [text] = useTypewriter({
+    words: ['Software Developer'],
+    typeSpeed: 60,
+    deleteSpeed: 0,
+    delaySpeed: 1000,
+    loop: 1,
+  });
+
   return (
-    <div id="home" className="min-h-screen flex items-center py-20 px-4 sm:px-6 lg:px-8">
-      <div className="w-full max-w-6xl mx-auto">
-        {/* Hero Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
-            Hello, I'm <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">Akash M</span>
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-12">Aspiring Software Developer</p>
-        </div>
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center bg-light-background dark:bg-dark-background transition-colors duration-300"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.h1
+          className="mt-10 text-5xl sm:text-6xl md:text-7xl font-bold text-light-text dark:text-dark-text pb-3"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          Hello, I'm <span className="text-blue-500">Akash M</span>
+        </motion.h1>
 
-        <div className="flex flex-col lg:flex-row gap-12">
-          {/* Left Column - College Profile */}
-          <div className="lg:w-1/3">
-            <div className="flex items-center gap-3 mb-4">
-              <FaGraduationCap className="text-2xl text-blue-400" />
-              <h2 className="text-xl font-semibold">Shiv Nadar University, Chennai</h2>
-            </div>
-            <p className="text-gray-600 dark:text-gray-300 mb-2">B.Tech in Computer Science & Engineering</p>
-            <p className="text-sm text-gray-500 dark:text-gray-400">2023 - 2027</p>
-          </div>
+        {/*Static Typewriter Line for "Software Engineer" */}
+        <motion.h2
+          className="text-2xl sm:text-3xl text-light-text dark:text-dark-text min-h-[2rem] font-medium"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+        >
+          {text}
+          <span className="text-blue-500">|</span>
+        </motion.h2>
 
-          {/* Right Column - Introduction and Interests */}
-          <div className="lg:w-2/3">
-            <div className="mb-8">
-              <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-                {HERO_CONTENT}
-              </p>
-            </div>
-            
-            <div className="mb-8">
-              <h3 className="font-medium mb-4 text-gray-800 dark:text-gray-200 text-lg">Areas of Interest</h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  Web Development
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  AI & Machine Learning
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-3"></span>
-                  IoT & Real-time Systems
-                </li>
-              </ul>
-            </div>
-            
-            <div className="flex flex-wrap gap-8 mt-10">
-              <div className="flex flex-col items-center group">
-                <a 
-                  href="https://www.linkedin.com/in/yourprofile" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-14 h-14 border-2 border-gray-300 dark:border-gray-600 rounded-full transition-all duration-300 group-hover:border-blue-500 dark:group-hover:border-blue-400"
-                  aria-label="LinkedIn Profile"
-                >
-                  <FaLinkedin className="text-xl text-gray-700 dark:text-gray-300 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors" />
-                </a>
-                <span className="mt-3 text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">LinkedIn</span>
-              </div>
-              
-              <div className="flex flex-col items-center group">
-                <a 
-                  href="https://github.com/yourusername" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-14 h-14 border-2 border-gray-300 dark:border-gray-600 rounded-full transition-all duration-300 group-hover:border-gray-700 dark:group-hover:border-gray-300"
-                  aria-label="GitHub Profile"
-                >
-                  <FaGithub className="text-xl text-gray-700 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-white transition-colors" />
-                </a>
-                <span className="mt-3 text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">GitHub</span>
-              </div>
-              
-              <div className="flex flex-col items-center group">
-                <a 
-                  href="https://leetcode.com/yourusername" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-14 h-14 border-2 border-gray-300 dark:border-gray-600 rounded-full transition-all duration-300 group-hover:border-amber-500"
-                  aria-label="LeetCode Profile"
-                >
-                  <SiLeetcode className="text-xl text-gray-700 dark:text-gray-300 group-hover:text-amber-500 transition-colors" />
-                </a>
-                <span className="mt-3 text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">LeetCode</span>
-              </div>
-              
-              <div className="flex flex-col items-center group">
-                <button 
-                  onClick={scrollToProjects}
-                  className="flex items-center justify-center w-14 h-14 border-2 border-gray-300 dark:border-gray-600 rounded-full transition-all duration-300 group-hover:border-purple-500 dark:group-hover:border-purple-400"
-                  aria-label="View Projects"
-                >
-                  <FaCode className="text-xl text-gray-700 dark:text-gray-300 group-hover:text-purple-500 dark:group-hover:text-purple-400 transition-colors" />
-                </button>
-                <span className="mt-3 text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">Projects</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        {/*Rotating Typewriter Sentences */}
+        <motion.div
+          className="max-w-3xl mx-auto mt-6 text-lg sm:text-xl text-light-text/80 dark:text-dark-text/80 min-h-[2.5rem]"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.5 }}
+        >
+          <Typewriter
+            words={[
+              "Specialization in IOT",
+              "Full-stack developer",
+              "Actively learning emerging trends in Artificial Intelligence",
+              "Exploring cloud computing, real-time applications, cloud-native architecture and distributed systems",
+              "Problem solver.",
+            ]}
+            loop
+            cursor
+            cursorStyle="_"
+            typeSpeed={50}
+            deleteSpeed={30}
+            delaySpeed={1500}
+          />
+        </motion.div>
+        
+        {/* Hero Content */}
+        <motion.div
+          className="mt-8 max-w-2xl mx-auto text-base sm:text-lg text-light-text/80 dark:text-dark-text/80"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 2 }}
+        >
+          {HERO_CONTENT}
+        </motion.div>
+
+        {/* Call-to-Action Button */}
+        <button
+          onClick={scrollToProjects}
+          className="group relative mt-5 inline-flex items-center px-8 py-3.5 overflow-hidden rounded-full 
+                    bg-black dark:bg-white 
+                    text-white dark:text-black
+                    font-semibold shadow-lg hover:shadow-xl hover:scale-105 
+                    transition-all duration-300 transform hover:-translate-y-0.5"
+        >
+          <span className="absolute inset-0 bg-white dark:bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-full"></span>
+          <span className="relative z-10 flex items-center">
+            View My Work
+            <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+          </span>
+        </button>
+
+        {/* Social Icons */}
+        <motion.div
+          className="mt-8 flex justify-center gap-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 2.2 }}
+        >
+          {socialLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.label}
+              className="group relative p-3 rounded-full bg-white/80 dark:bg-white/10 backdrop-blur-sm 
+              transition-all duration-300 hover:scale-110
+              border border-light-border/50 dark:border-white/10
+              shadow-sm hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+            >
+              <span className="text-light-text-alt dark:text-dark-text-alt group-hover:text-light-primary dark:group-hover:text-dark-primary transition-colors duration-300 text-xl">
+                {link.icon}
+              </span>
+              <span className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-xs font-medium text-light-text-alt dark:text-dark-text-alt whitespace-nowrap">
+                {link.label}
+              </span>
+            </a>
+          ))}
+        </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

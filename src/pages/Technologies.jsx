@@ -1,109 +1,140 @@
 import {
-  SiJavascript,
-  SiTypescript,
-  SiPython,
-  SiC,
-  SiCplusplus,
-  SiHtml5,
-  SiTailwindcss,
-  SiMongodb,
-  SiPrisma,
-  SiPostgresql,
-  SiMysql,
-  SiExpress,
-  SiGithub
+  SiJavascript, SiTypescript, SiPython, SiC, SiCplusplus, SiHtml5,
+  SiTailwindcss, SiMongodb, SiPrisma, SiPostgresql, SiMysql, SiExpress, SiGithub
 } from 'react-icons/si';
 import { DiJava } from 'react-icons/di';
 import { RiReactjsLine } from 'react-icons/ri';
 import { TbBrandNextjs } from 'react-icons/tb';
 import { FaNodeJs } from 'react-icons/fa';
+import AnimatedSection from '../components/AnimatedSection';
+import { motion } from 'framer-motion';
 
+const technologies = [
+  {
+    title: "Languages",
+    items: [
+      { icon: <SiJavascript />, name: "JavaScript" },
+      { icon: <SiTypescript />, name: "TypeScript" },
+      { icon: <SiPython />, name: "Python" },
+      { icon: <DiJava />, name: "Java" },
+      { icon: <SiCplusplus />, name: "C++" },
+      { icon: <SiC />, name: "C" },
+    ],
+  },
+  {
+    title: "Frontend Development",
+    items: [
+      { icon: <RiReactjsLine />, name: "React" },
+      { icon: <TbBrandNextjs />, name: "Next.js" },
+      { icon: <SiHtml5 />, name: "HTML5" },
+      { icon: <SiTailwindcss />, name: "Tailwind CSS" },
+    ],
+  },
+  {
+    title: "Backend Development",
+    items: [
+      { icon: <FaNodeJs />, name: "Node.js" },
+      { icon: <SiExpress />, name: "Express.js" },
+      { icon: <SiPrisma />, name: "Prisma ORM" },
+    ],
+  },
+  {
+    title: "Databases",
+    items: [
+      { icon: <SiMongodb />, name: "MongoDB" },
+      { icon: <SiPostgresql />, name: "PostgreSQL" },
+      { icon: <SiMysql />, name: "MySQL" },
+    ],
+  },
+  {
+    title: "Development Tools",
+    items: [
+      { icon: <SiGithub />, name: "GitHub" },
+    ],
+  },
+];
 
-const TechItem = ({ icon: Icon, name, color }) => {
-  const bgColor = color.replace('text-', '').replace(/([0-9]+)/, '$1/10');
-  const borderColor = color.replace('text-', '').replace(/([0-9]+)/, '$1/30');
-  
-  return (
-    <div className="group relative flex flex-col items-center p-6 rounded-xl transition-all duration-300 hover:bg-opacity-10 hover:backdrop-blur-sm"
-         style={{
-           '--bg-color': bgColor,
-           '--border-color': borderColor
-         }}>
-      <div className="relative p-4 rounded-full mb-3 transition-all duration-300 group-hover:bg-[var(--bg-color)] group-hover:border group-hover:border-[var(--border-color)]">
-        <Icon className={`text-4xl ${color} transition-transform duration-300 group-hover:scale-110`} />
-      </div>
-      <span className="text-sm font-medium text-center text-gray-600 dark:text-gray-300 group-hover:text-gray-800 dark:group-hover:text-white transition-colors duration-300">
-        {name}
-      </span>
-    </div>
-  );
+const iconVariants = {
+  initial: { y: 0 },
+  hover: { y: -5 },
+};
+
+const colorMap = {
+  JavaScript: '#f7df1e',
+  TypeScript: '#3178c6',
+  Python: '#3776ab',
+  Java: '#EA2D2E',
+  'C++': '#00599c',
+  C: '#00599c',
+  React: '#61dafb',
+  'Next.js': '#000000',
+  HTML5: '#e34f26',
+  'Tailwind CSS': '#38bdf8',
+  'Node.js': '#68a063',
+  'Express.js': '#000000',
+  'Prisma ORM': '#0c344b',
+  MongoDB: '#47a248',
+  PostgreSQL: '#336791',
+  MySQL: '#00758f',
+  GitHub: '#181717',
 };
 
 
-const Technologies = () => (
-  <section id="technologies" className="py-12 border-b border-neutral-200 dark:border-neutral-800">
-    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-          Technologies I Work With
+const TechItem = ({ icon, name }) =>{ 
+  const color = colorMap[name] || 'currentColor';
+
+  return (
+    <motion.div 
+      className="relative group flex flex-col items-center justify-center p-4 rounded-lg 
+              bg-light-background-alt dark:bg-dark-card/80 
+              shadow-md hover:shadow-lg transition-all duration-300
+              border border-light-border/20 dark:border-white/10
+              dark:before:absolute dark:before:inset-0 dark:before:rounded-lg dark:before:pointer-events-none
+              dark:before:transition-all dark:before:duration-300 dark:hover:before:opacity-100 dark:before:opacity-0
+              dark:before:shadow-[0_0_15px_rgba(255,255,255,0.2)]"
+      variants={iconVariants}
+      initial="initial"
+      whileHover="hover"
+    >
+      <div className="relative z-10 flex flex-col items-center">
+        <div className="text-4xl mb-2 text-light-text-alt dark:text-dark-text-alt 
+                    group-hover:text-light-accent dark:group-hover:text-dark-primary 
+                    transition-colors duration-300"
+            style={{ color }}
+        >
+          {icon}
+        </div>
+        <p className="text-sm font-medium text-light-text dark:text-dark-text">{name}</p>
+      </div>
+    </motion.div>
+  )
+};
+
+const Technologies = () => {
+  return (
+    <AnimatedSection>
+      <div>
+        <h2 className="text-4xl font-bold text-center bg-clip-text bg-blue-500 text-transparent h-20">  
+          Skills & Technologies
         </h2>
-        <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 mx-auto rounded-full"></div>
+
+        <div className="space-y-12 max-w-6xl mx-auto px-4">
+          {technologies.map((section, index) => (
+            <div key={index}>
+              <h3 className="text-2xl font-semibold text-center mb-8 text-light-text dark:text-dark-text">
+                {section.title}
+              </h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                {section.items.map((tech, techIndex) => (
+                  <TechItem key={techIndex} icon={tech.icon} name={tech.name} />
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-
-      <div className="space-y-20">
-        {/* Languages */}
-        <Section title="Languages">
-          <TechItem icon={SiJavascript} name="JavaScript" color="text-yellow-400" />
-          <TechItem icon={SiTypescript} name="TypeScript" color="text-blue-400" />
-          <TechItem icon={SiPython} name="Python" color="text-blue-400" />
-          <TechItem icon={SiC} name="C" color="text-gray-300" />
-          <TechItem icon={SiCplusplus} name="C++" color="text-blue-500" />
-          <TechItem icon={DiJava} name="Java" color="text-red-500" />
-        </Section>
-
-        {/* Frontend */}
-        <Section title="Frontend Development">
-          <TechItem icon={SiHtml5} name="HTML5" color="text-orange-500" />
-          <TechItem icon={RiReactjsLine} name="React" color="text-cyan-400" />
-          <TechItem icon={TbBrandNextjs} name="Next.js" color="text-white" />
-          <TechItem icon={SiTailwindcss} name="Tailwind CSS" color="text-sky-400" />
-        </Section>
-
-        {/* Backend */}
-        <Section title="Backend Development">
-          <TechItem icon={FaNodeJs} name="Node.js" color="text-green-500" />
-          <TechItem icon={SiExpress} name="Express.js" color="text-gray-200" />
-          <TechItem icon={SiPrisma} name="Prisma ORM" color="text-indigo-400" />
-        </Section>
-
-        {/* Databases */}
-        <Section title="Databases">
-          <TechItem icon={SiMongodb} name="MongoDB" color="text-green-500" />
-          <TechItem icon={SiPostgresql} name="PostgreSQL" color="text-sky-500" />
-          <TechItem icon={SiMysql} name="MySQL" color="text-blue-500" />
-        </Section>
-
-        {/* Tools */}
-        <Section title="Development Tools">
-          <TechItem icon={SiGithub} name="GitHub" color="text-gray-100" />
-        </Section>
-      </div>
-    </div>
-  </section>
-);
-
-const Section = ({ title, children }) => (
-  <div className="mb-16">
-    <div className="relative mb-10">
-      <h3 className="relative z-10 inline-block px-4 py-2 text-lg font-semibold text-blue-600 dark:text-blue-400 bg-white dark:bg-gray-900">
-        {title}
-      </h3>
-      <div className="absolute top-1/2 w-full h-px bg-gradient-to-r from-gray-200 to-gray-200 dark:from-gray-700 dark:to-gray-700 -z-10"></div>
-    </div>
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 px-4">
-      {children}
-    </div>
-  </div>
-);
+    </AnimatedSection>
+  );
+};
 
 export default Technologies;
