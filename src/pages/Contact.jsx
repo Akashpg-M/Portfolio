@@ -7,25 +7,25 @@ const contactLinks = [
   {
     name: 'Email',
     icon: <FaEnvelope className="text-3xl" />,
-    href: 'mailto:your.email@example.com',
+    href: 'mailto:waybooster.pg@gmail.com',
     ariaLabel: 'Send an email',
   },
   {
     name: 'LinkedIn',
     icon: <FaLinkedin className="text-3xl" />,
-    href: 'https://www.linkedin.com/in/yourprofile',
+    href: 'http://www.linkedin.com/in/akash-m-50951828a',
     ariaLabel: 'Connect on LinkedIn',
   },
   {
     name: 'GitHub',
     icon: <FaGithub className="text-3xl" />,
-    href: 'https://github.com/yourusername',
+    href: 'https://github.com/Akashpg-M',
     ariaLabel: 'View GitHub profile',
   },
   {
     name: 'LeetCode',
     icon: <SiLeetcode className="text-3xl" />,
-    href: 'https://leetcode.com/yourusername',
+    href: 'https://leetcode.com/u/A_k_a_s_h_m/',
     ariaLabel: 'Check LeetCode profile',
   },
 ];

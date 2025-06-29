@@ -1,4 +1,4 @@
-import { ABOUT_TEXT } from "../constants";
+import { ABOUT_PARAGRAPH } from "../constants";
 import { FaGraduationCap } from "react-icons/fa";
 import AnimatedSection from "../components/AnimatedSection";
 
@@ -23,9 +23,14 @@ const About = () => {
 
           {/* Right Column - Introduction */}
           <div className="lg:w-2/3">
-            <p className="text-lg leading-relaxed text-light-text-alt dark:text-dark-text-alt">
-              {ABOUT_TEXT}
-            </p>
+            {ABOUT_PARAGRAPH.map((para, idx) => (
+              <p
+                key={idx}
+                className="text-lg leading-relaxed text-light-text-alt dark:text-dark-text-alt mb-4 last:mb-0"
+              >
+                {para}
+              </p>
+            ))}
           </div>
         </div>
       </div>
