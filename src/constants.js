@@ -99,7 +99,7 @@ export const Certificates = [
     provider: "Infosis Spring Board",
     description:
       "A collection of certifications in Intoduction to Artificial Intelligence, Machine Learning, and Deep Learning",
-    // certificateLink: "https://link.to/your-certificates-folder"
+    certificateLink: "https://github.com/Akashpg-M/Certificates/tree/main/AI_ML_DL"
   },
   {
     title: "German Language Certificate - A1",
