@@ -30,12 +30,12 @@ const Home = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h1
-          className="mt-10 text-5xl sm:text-6xl md:text-7xl font-bold text-light-text dark:text-dark-text pb-3"
+          className="mt-2 sm:mt-10 text-4xl sm:text-6xl md:text-7xl font-bold text-light-text dark:text-dark-text pb-3"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Hello, I'm <span className="text-blue-500">Akash M</span>
+          Hello, I'm <span className="text-blue-500 whitespace-nowrap">Akash M</span>
         </motion.h1>
 
         {/*Static Typewriter Line for "Software Engineer" */}
