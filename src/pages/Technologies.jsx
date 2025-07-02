@@ -1,7 +1,8 @@
 import {
   SiJavascript, SiTypescript, SiPython, SiC, SiCplusplus, SiHtml5,
-  SiTailwindcss, SiMongodb, SiPrisma, SiPostgresql, SiMysql, SiExpress, SiGithub
+  SiTailwindcss, SiMongodb, SiPrisma, SiPostgresql, SiMysql, SiExpress, SiGithub, SiPostman, SiGit
 } from 'react-icons/si';
+import { FaGithub} from "react-icons/fa";
 import { DiJava } from 'react-icons/di';
 import { RiReactjsLine } from 'react-icons/ri';
 import { TbBrandNextjs } from 'react-icons/tb';
@@ -49,7 +50,9 @@ const technologies = [
   {
     title: "Development Tools",
     items: [
-      { icon: <SiGithub />, name: "GitHub" },
+      { icon: <FaGithub />, name: "GitHub" },
+      { icon: <SiGit />, name: "Git" },
+      { icon: <SiPostman />, name: "Postman" },
     ],
   },
 ];
@@ -76,7 +79,9 @@ const colorMap = {
   MongoDB: '#47a248',
   PostgreSQL: '#336791',
   MySQL: '#00758f',
-  GitHub: '#181717',
+  GitHub: '',
+  Postman: '#FF6C37',
+  Git: '#F05032',
 };
 
 
