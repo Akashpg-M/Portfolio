@@ -6,7 +6,7 @@ import Technologies from './pages/Technologies';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Certificates from './pages/Certificates';
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { FaLinkedin, FaGithub, FaEnvelope } from 'react-icons/fa';
 
 const App = () => {
   return (
@@ -39,7 +39,7 @@ const App = () => {
               aria-label="Email"
               className="p-2 rounded-full bg-light-background-alt dark:bg-dark-background-alt hover:bg-light-primary/10 dark:hover:bg-dark-primary/10 text-light-text-alt dark:text-dark-text-alt hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-200"
             >
-              <FiMail size={20} />
+              <FaEnvelope size={20}/>
             </a>
             <a
               href="https://github.com/Akashpg-M"
@@ -48,7 +48,7 @@ const App = () => {
               aria-label="GitHub"
               className="p-2 rounded-full bg-light-background-alt dark:bg-dark-background-alt hover:bg-light-primary/10 dark:hover:bg-dark-primary/10 text-light-text-alt dark:text-dark-text-alt hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-200"
             >
-              <FiGithub size={20} />
+              <FaLinkedin size={20}/>
             </a>
             <a
               href="http://www.linkedin.com/in/akash-m-50951828a"
@@ -57,7 +57,7 @@ const App = () => {
               aria-label="LinkedIn"
               className="p-2 rounded-full bg-light-background-alt dark:bg-dark-background-alt hover:bg-light-primary/10 dark:hover:bg-dark-primary/10 text-light-text-alt dark:text-dark-text-alt hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-200"
             >
-              <FiLinkedin size={20} />
+              <FaGithub size={20}/>
             </a>
           </div>
           <p className="text-sm text-light-text-alt dark:text-dark-text-alt">
