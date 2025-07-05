@@ -7,7 +7,7 @@ const AnimatedSection = ({ children, id }) => {
       opacity: 1, 
       y: 0, 
       transition: { 
-        duration: 0.6, 
+        duration: 0.3, 
         ease: 'easeOut' 
       } 
     },
@@ -16,7 +16,7 @@ const AnimatedSection = ({ children, id }) => {
   return (
     <motion.section
       id={id}
-      className="py-16 sm:py-20"
+      className="py-10"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.2 }}
