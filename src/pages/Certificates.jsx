@@ -11,7 +11,7 @@ const cardVariants = {
     y: 0,
     transition: {
       delay: i * 0.1,
-      duration: 0.5
+      duration: 0.1
     }
   })
 };
@@ -23,7 +23,7 @@ const Certificates = () => {
 
   return (
     <AnimatedSection>
-      <div id="certificates" className="py-20">
+      <div id="certificates" className="">
         <h2 className="text-4xl sm:text-5xl font-bold text-center mb-10 text-blue-500">
           My Certificates
         </h2>

@@ -2,12 +2,12 @@ import { motion } from 'framer-motion';
 
 const AnimatedSection = ({ children, id }) => {
   const variants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
       y: 0, 
       transition: { 
-        duration: 0.3, 
+        duration: 0.1, 
         ease: 'easeOut' 
       } 
     },

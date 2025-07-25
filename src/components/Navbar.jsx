@@ -57,7 +57,6 @@ const Navbar = () => {
   };
 
   return (
-    // <nav className="fixed top-0 left-0 right-0 z-50 bg-white dark:bg-grey shadow-md transition-colors">
     <nav className="fixed top-0 left-0 right-0 z-50 shadow-md transition-colors bg-[var(--light-background)] dark:bg-[var(--dark-background)]">
       <div className="container mx-auto px-4 flex justify-between items-center py-3">
         {/* Logo */}

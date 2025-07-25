@@ -1,12 +1,16 @@
 import ChatApp from "./assets/projects/ChatApp.png";
 import DevHub from "./assets/projects/DevHub.png";
+import RoadMapr from "./assets/projects/RoadMapr.png"
 import ECommerce from "./assets/projects/E-Commerce.png";
+import LMS from "./assets/projects/LMS.png";
+
 import IBM_DEVOPS from "./assets/certificates/IBM_DEVOPS.pdf";
 import IBM_CLOUD_COMPUTING from "./assets/certificates/IBM_CLOUD_COMPUTING.pdf";
 import NPTEL_COMPETITIVE_PROGRAMMING from "./assets/certificates/NPTEL_COMPETITIVE_PROGRAMMING.pdf";
 import NPTEL_LLM from "./assets/certificates/NPTEL_LLM.pdf";
 import JDBC from "./assets/certificates/JDBC.pdf";
 import GERMAN_LANGUAGE from "./assets/certificates/GERMAN_LANGUAGE.pdf";
+
 // import AI_ML_DL from "./assets/certificates/AI_ML_DL.pdf";
 
 export const HERO_CONTENT = `My Interests lie in exploring new technologies, coding, and building innovative projects.`;
@@ -39,6 +43,14 @@ export const PROJECTS = [
       link: "https://e-commerce-app-s82w.onrender.com"
     },
     {
+      title: "roadmapr",
+      image: RoadMapr, 
+      description:
+        "An AI-powered project planning tool that helps users create personalized roadmaps based on tasks, deadlines, and productivity pace. Users can generate project timelines, track progress, and get intelligent task breakdowns.",
+      technologies: ["Next.js", "JavaScript", "Tailwind CSS"],
+      github: "https://github.com/Akashpg-M/RoadMapr",
+    },
+    {
       title: "Real-Time Chat App",
       image: ChatApp,
       description:
@@ -49,6 +61,7 @@ export const PROJECTS = [
     },
     {
       title: "University LMS",
+      image: LMS,
       description:
         "A Learning Management System designed for university-level education. Supports course creation, assignment management, student tracking, and role-based dashboards for students, instructors, and admins.",
       technologies: ["React", "Node.js", "Express", "MySQL"],

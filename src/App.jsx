@@ -48,7 +48,7 @@ const App = () => {
               aria-label="GitHub"
               className="p-2 rounded-full bg-light-background-alt dark:bg-dark-background-alt hover:bg-light-primary/10 dark:hover:bg-dark-primary/10 text-light-text-alt dark:text-dark-text-alt hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-200"
             >
-              <FaLinkedin size={20}/>
+              <FaGithub size={20}/>
             </a>
             <a
               href="http://www.linkedin.com/in/akash-m-50951828a"
@@ -57,11 +57,11 @@ const App = () => {
               aria-label="LinkedIn"
               className="p-2 rounded-full bg-light-background-alt dark:bg-dark-background-alt hover:bg-light-primary/10 dark:hover:bg-dark-primary/10 text-light-text-alt dark:text-dark-text-alt hover:text-light-primary dark:hover:text-dark-primary transition-colors duration-200"
             >
-              <FaGithub size={20}/>
+              <FaLinkedin size={20}/>
             </a>
           </div>
           <p className="text-sm text-light-text-alt dark:text-dark-text-alt">
-            &copy; {new Date().getFullYear()} Akash M. All rights reserved.
+            &copy; {new Date().getFullYear()} Akash M.
           </p>
         </div>
       </footer>
