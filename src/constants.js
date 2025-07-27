@@ -28,7 +28,7 @@ export const PROJECTS = [
       title: "Developer Hub",
       image: DevHub,
       description:
-        "A community-driven platform for developers to form groups, collaborate on projects, manage tasks, and communicate in real-time. Includes private chats, role-based access, and AI-assisted task planning.",
+        "A community-driven platform for developers to form groups, collaborate on projects, manage tasks.",
       technologies: ["React", "TypeScript", "Node.js", "Express", "PostgreSQL", "Prisma", "Zustand"],
       github: "https://github.com/Akashpg-M/Developer_Hub",
       link: "https://developerhub-app.onrender.com"
