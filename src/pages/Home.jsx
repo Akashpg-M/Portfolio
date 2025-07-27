@@ -84,20 +84,35 @@ const Home = () => {
         </motion.div>
 
         {/* Call-to-Action Button */}
-        <button
-          onClick={scrollToProjects}
-          className="group relative mt-5 inline-flex items-center px-8 py-3.5 overflow-hidden rounded-full 
-                    bg-black dark:bg-white 
-                    text-white dark:text-black
-                    font-semibold shadow-lg hover:shadow-xl hover:scale-105 
-                    transition-all duration-300 transform hover:-translate-y-0.5"
-        >
-          <span className="absolute inset-0 bg-white dark:bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-full"></span>
-          <span className="relative z-10 flex items-center">
-            View My Work
-            <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </span>
-        </button>
+        <div className="flex justify-center flex-wrap gap-4 mt-6">
+          <button
+            onClick={scrollToProjects}
+            className="group relative mt-5 inline-flex items-center px-8 py-3.5 overflow-hidden rounded-full 
+                      bg-black dark:bg-white 
+                      text-white dark:text-black
+                      font-semibold shadow-lg hover:shadow-xl hover:scale-105 
+                      transition-all duration-300 transform hover:-translate-y-0.5"
+          >
+            <span className="absolute inset-0 bg-white dark:bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-full"></span>
+            <span className="relative z-10 flex items-center">
+              View My Work
+              <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </span>
+          </button>
+
+          <a
+            href="/Portfolio/Resume.pdf"
+            download="Akash_M_Resume.pdf"
+            className="group relative mt-5 ml-4 inline-flex items-center px-8 py-3.5 overflow-hidden rounded-full 
+                        bg-blue-600 text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 
+                        transition-all duration-300 transform hover:-translate-y-0.5"
+          >
+            <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300 rounded-full"></span>
+            <span className="relative z-10 flex items-center">
+              Download Resume
+            </span>
+          </a>
+        </div>
 
         {/* Social Icons */}
         <motion.div
