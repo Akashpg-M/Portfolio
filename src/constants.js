@@ -127,7 +127,7 @@ export const Certificates = [
 
 export const CONTACT = {
   address: "Chennai, Tamil Nadu, India",
-  email: "akash@example.com",
-  phoneNo: "+91 98765 43210",
-  github: "https://github.com/akashmdev"
+  email: "akash.mur.rr@gmail.com",
+  phoneNo: "+91 9841988847",
+  github: "https://github.com/Akashpg-M"
 };

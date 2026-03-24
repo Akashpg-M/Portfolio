@@ -25,7 +25,7 @@ const contactLinks = [
   {
     name: 'LeetCode',
     icon: <SiLeetcode className="text-3xl" />,
-    href: 'https://leetcode.com/u/A_k_a_s_h_m/',
+    href: 'https://leetcode.com/u/MAkash_2023/',
     ariaLabel: 'Check LeetCode profile',
   },
 ];
