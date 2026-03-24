@@ -12,7 +12,7 @@ const Home = () => {
   const socialLinks = [
     { icon: <FaLinkedin />, href: "http://www.linkedin.com/in/akash-m-50951828a", label: "LinkedIn" },
     { icon: <FaGithub />, href: "https://github.com/Akashpg-M", label: "GitHub" },
-    { icon: <SiLeetcode />, href: "https://leetcode.com/u/A_k_a_s_h_m/", label: "LeetCode" },
+    { icon: <SiLeetcode />, href: "https://leetcode.com/u/MAkash_2023/", label: "LeetCode" },
   ];
 
   const [text] = useTypewriter({
